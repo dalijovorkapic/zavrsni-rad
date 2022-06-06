@@ -3,7 +3,7 @@ package com.fer.hr.zavrsni.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
-public class ScheduleDTO {
+public class ScheduleData {
 
     private  String action;
     @JsonProperty("EndDate")

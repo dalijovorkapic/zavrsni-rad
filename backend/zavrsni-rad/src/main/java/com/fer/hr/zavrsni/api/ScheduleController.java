@@ -2,7 +2,7 @@ package com.fer.hr.zavrsni.api;
 
 
 import com.fer.hr.zavrsni.model.ScheduleAction;
-import com.fer.hr.zavrsni.model.ScheduleDTO;
+import com.fer.hr.zavrsni.model.ScheduleData;
 import com.fer.hr.zavrsni.model.ScheduleResult;
 import com.fer.hr.zavrsni.model.User;
 import com.fer.hr.zavrsni.service.ScheduleService;
@@ -29,7 +29,7 @@ public class ScheduleController {
     }
 
     @PostMapping("/xd")
-    public String insertSch(@RequestBody ScheduleDTO schedule, @RequestHeader("Authorization") String access_token) {
+    public String insertSch(@RequestBody ScheduleData schedule, @RequestHeader("Authorization") String access_token) {
         Base64.Decoder decoder = Base64.getUrlDecoder();
         access_token = access_token.replace("Bearer ", "");
         String payload = new String(decoder.decode(access_token.split("\\.")[1]));
