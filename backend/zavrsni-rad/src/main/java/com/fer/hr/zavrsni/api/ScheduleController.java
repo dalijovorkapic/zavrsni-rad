@@ -1,9 +1,8 @@
 package com.fer.hr.zavrsni.api;
 
 
-import com.fer.hr.zavrsni.model.ScheduleAction;
 import com.fer.hr.zavrsni.model.ScheduleData;
-import com.fer.hr.zavrsni.model.ScheduleResult;
+import com.fer.hr.zavrsni.model.Schedule;
 import com.fer.hr.zavrsni.model.User;
 import com.fer.hr.zavrsni.service.ScheduleService;
 import com.fer.hr.zavrsni.service.UserService;
@@ -29,7 +28,7 @@ public class ScheduleController {
     }
 
     @PostMapping("/xd")
-    public String insertSch(@RequestBody ScheduleData schedule, @RequestHeader("Authorization") String access_token) {
+    public String insertSch(@RequestBody Schedule schedule, @RequestHeader("Authorization") String access_token) {
         Base64.Decoder decoder = Base64.getUrlDecoder();
         access_token = access_token.replace("Bearer ", "");
         String payload = new String(decoder.decode(access_token.split("\\.")[1]));
@@ -50,9 +49,6 @@ public class ScheduleController {
             this.scheduleService.updateSch(schedule.getChanged().get(0).getId(), schedule.getChanged().get(0));
         }
 
-        ScheduleResult result = new ScheduleResult();
-        result.setResult(this.scheduleService.getSch(user.getUser_id()));
-
         JSONObject obj = new JSONObject();
         obj.put("result",this.scheduleService.getSch(user.getUser_id()));
 
@@ -61,7 +57,7 @@ public class ScheduleController {
     }
 
     @PostMapping
-    public List<ScheduleAction> getSch(@RequestHeader("Authorization") String access_token) {
+    public List<ScheduleData> getSch(@RequestHeader("Authorization") String access_token) {
         Base64.Decoder decoder = Base64.getUrlDecoder();
         access_token = access_token.replace("Bearer ", "");
         String payload = new String(decoder.decode(access_token.split("\\.")[1]));

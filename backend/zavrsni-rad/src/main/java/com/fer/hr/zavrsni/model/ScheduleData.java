@@ -2,94 +2,58 @@ package com.fer.hr.zavrsni.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.List;
 public class ScheduleData {
+    @JsonProperty("EndTime")
+    private String endTime;
+    @JsonProperty("Id")
+    private int id;
+    @JsonProperty("StartTime")
+    private String startTime;
+    @JsonProperty("Subject")
+    private String subject;
 
-    private  String action;
-    @JsonProperty("EndDate")
-    private  String endDate;
-    @JsonProperty("StartDate")
-    private  String startDate;
-    private  List<ScheduleAction> added;
-    private  List<ScheduleAction> changed;
-    private  List<ScheduleAction> deleted;
-    private ScheduleParams params;
-
-    /*
-    public ScheduleDTO(@JsonProperty String action,
-                       @JsonProperty String endDate,
-                       @JsonProperty String startDate,
-                       @JsonProperty List<ScheduleAction> added,
-                       @JsonProperty List<ScheduleAction> changed,
-                       @JsonProperty List<ScheduleAction> deleted,
-                       @JsonProperty ScheduleParams params) {
-        this.action = action;
-        this.EndDate = endDate;
-        this.StartDate = startDate;
-        this.added = added;
-        this.changed = changed;
-        this.deleted = deleted;
-        this.params = params;
-    } */
-
-    public String getAction() {
-        return action;
+    public ScheduleData(@JsonProperty("EndTime") String endTime, @JsonProperty("Id") int id, @JsonProperty("StartTime") String startTime, @JsonProperty("Subject") String subject) {
+        this.endTime = endTime;
+        this.id = id;
+        this.startTime = startTime;
+        this.subject = subject;
     }
 
-    public void setAction(String action) {
-        this.action = action;
+    public String getEndTime() {
+        return endTime;
     }
 
-    public String getEndDate() {
-        return endDate;
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
     }
 
-    public void setEndDate(String endDate) {
-        this.endDate = endDate;
+    public int getId() {
+        return id;
     }
 
-    public String getStartDate() {
-        return startDate;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setStartDate(String startDate) {
-        this.startDate = startDate;
+    public String getStartTime() {
+        return startTime;
     }
 
-    public List<ScheduleAction> getAdded() {
-        return added;
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
     }
 
-    public void setAdded(List<ScheduleAction> added) {
-        this.added = added;
+    public String getSubject() {
+        return subject;
     }
 
-    public List<ScheduleAction> getChanged() {
-        return changed;
-    }
-
-    public void setChanged(List<ScheduleAction> changed) {
-        this.changed = changed;
-    }
-
-    public List<ScheduleAction> getDeleted() {
-        return deleted;
-    }
-
-    public void setDeleted(List<ScheduleAction> deleted) {
-        this.deleted = deleted;
-    }
-
-    public ScheduleParams getParams() {
-        return params;
-    }
-
-    public void setParams(ScheduleParams params) {
-        this.params = params;
+    public void setSubject(String subject) {
+        this.subject = subject;
     }
 
     @Override
     public String toString() {
-        return "Action:"+action+"\\n StartDate:"+startDate+"\\n EndDate:"+endDate+ "\\n Added:"+added+"\\n Params:"+params;
+        return ("Id:"+this.getId()+" Subject:"+this.getSubject()+
+        " StartTime:"+this.getStartTime()+" EndTime:"+this.getEndTime());
     }
 }

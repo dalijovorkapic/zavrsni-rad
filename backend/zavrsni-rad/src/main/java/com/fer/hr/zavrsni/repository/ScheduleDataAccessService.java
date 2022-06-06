@@ -1,7 +1,7 @@
 package com.fer.hr.zavrsni.repository;
 
 import com.fer.hr.zavrsni.dao.ScheduleDao;
-import com.fer.hr.zavrsni.model.ScheduleAction;
+import com.fer.hr.zavrsni.model.ScheduleData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -19,7 +19,7 @@ public class ScheduleDataAccessService implements ScheduleDao {
     }
 
     @Override
-    public int insertSch(ScheduleAction sch, int user_id) {
+    public int insertSch(ScheduleData sch, int user_id) {
         final String sql="INSERT INTO test1 (subject, starttime, endtime, user_id) VALUES (?, ?, ?, ?)";
 
         jdbcTemplate.update(sql,
@@ -31,10 +31,10 @@ public class ScheduleDataAccessService implements ScheduleDao {
     }
 
     @Override
-    public List<ScheduleAction> getSch(int user_id) {
+    public List<ScheduleData> getSch(int user_id) {
         final String sql="SELECT id, subject, starttime, endtime, user_id FROM test1 WHERE user_id = ?";
-        List<ScheduleAction> schedules = jdbcTemplate.query(sql, new Object[]{user_id}, (resultSet, i) -> {
-            return new ScheduleAction(
+        List<ScheduleData> schedules = jdbcTemplate.query(sql, new Object[]{user_id}, (resultSet, i) -> {
+            return new ScheduleData(
                     resultSet.getString("endtime"),
                     Integer.parseInt(resultSet.getString("id")),
                     resultSet.getString("starttime"),
@@ -53,7 +53,7 @@ public class ScheduleDataAccessService implements ScheduleDao {
     }
 
     @Override
-    public int updateSch(int id, ScheduleAction newEvent) {
+    public int updateSch(int id, ScheduleData newEvent) {
         final String sql="UPDATE test1 SET subject='"+newEvent.getSubject()+"', starttime='"+newEvent.getStartTime()+"', endtime='"+newEvent.getEndTime()+"' WHERE id = ?";
         jdbcTemplate.update(sql,id);
         return 0;

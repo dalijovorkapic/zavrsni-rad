@@ -1,7 +1,7 @@
 package com.fer.hr.zavrsni.service;
 
 import com.fer.hr.zavrsni.dao.ScheduleDao;
-import com.fer.hr.zavrsni.model.ScheduleAction;
+import com.fer.hr.zavrsni.model.ScheduleData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -18,16 +18,16 @@ public class ScheduleService {
         this.scheduleDao = scheduleDao;
     }
 
-    public int insertSch(ScheduleAction sch, int user_id) {
+    public int insertSch(ScheduleData sch, int user_id) {
         return scheduleDao.insertSch(sch, user_id);
     }
-    public List<ScheduleAction> getSch(int user_id) {
+    public List<ScheduleData> getSch(int user_id) {
         return scheduleDao.getSch(user_id);
     }
     public int deleteSch(int id) {
         return scheduleDao.deleteSch(id);
     }
-    public int updateSch(int id, ScheduleAction newEvent) {
+    public int updateSch(int id, ScheduleData newEvent) {
         return scheduleDao.updateSch(id, newEvent);
     }
 }

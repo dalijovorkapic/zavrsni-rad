@@ -20,7 +20,7 @@ public class User {
     @NotBlank
     private final String role;
 
-
+    //Constructor
     public User(
             @JsonProperty("user_id") int user_id,
             @JsonProperty("name") String name,
@@ -34,7 +34,7 @@ public class User {
         this.password = password;
         this.role = role;
     }
-
+    //Getters
     public int getUser_id() {
         return user_id;
     }
