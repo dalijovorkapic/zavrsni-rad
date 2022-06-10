@@ -19,7 +19,6 @@ public class WorkoutDataAccessService implements WorkoutDao {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-
     @Override
     public int insertWorkout(Workout workout) {
         final String sql="INSERT INTO workout (name, duration, complexity, user_id, exercises) VALUES (?,?,?,?,?)";
@@ -31,7 +30,6 @@ public class WorkoutDataAccessService implements WorkoutDao {
                 workout.getExercises());
         return 0;
     }
-
     @Override
     public List<Workout> selectAllWorkouts() {
         final String sql="SELECT workout_id, name, complexity, duration, user_id, exercises FROM workout";

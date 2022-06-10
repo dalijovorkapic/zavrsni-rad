@@ -4,6 +4,13 @@ app:
     username: postgres
     password: password
     pool-size: 30
+
+
+
+
+
+
+
 #app:
  # datasource:
   #  jdbc-url: jdbc:postgresql://ec2-63-32-248-14.eu-west-1.compute.amazonaws.com:5432/d6nqm7fdmjab4b
