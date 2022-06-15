@@ -20,7 +20,7 @@ public class ScheduleDataAccessService implements ScheduleDao {
 
     @Override
     public int insertSch(ScheduleData sch, int user_id) {
-        final String sql="INSERT INTO test1 (subject, starttime, endtime, user_id) VALUES (?, ?, ?, ?)";
+        final String sql="INSERT INTO schedule (subject, starttime, endtime, user_id) VALUES (?, ?, ?, ?)";
 
         jdbcTemplate.update(sql,
                 sch.getSubject(),
@@ -32,7 +32,7 @@ public class ScheduleDataAccessService implements ScheduleDao {
 
     @Override
     public List<ScheduleData> getSch(int user_id) {
-        final String sql="SELECT id, subject, starttime, endtime, user_id FROM test1 WHERE user_id = ?";
+        final String sql="SELECT id, subject, starttime, endtime, user_id FROM schedule WHERE user_id = ?";
         List<ScheduleData> schedules = jdbcTemplate.query(sql, new Object[]{user_id}, (resultSet, i) -> {
             return new ScheduleData(
                     resultSet.getString("endtime"),
@@ -47,14 +47,14 @@ public class ScheduleDataAccessService implements ScheduleDao {
 
     @Override
     public int deleteSch(int id) {
-        final String sql="DELETE FROM test1 WHERE id = ?";
+        final String sql="DELETE FROM schedule WHERE id = ?";
         jdbcTemplate.update(sql, id);
         return 0;
     }
 
     @Override
     public int updateSch(int id, ScheduleData newEvent) {
-        final String sql="UPDATE test1 SET subject='"+newEvent.getSubject()+"', starttime='"+newEvent.getStartTime()+"', endtime='"+newEvent.getEndTime()+"' WHERE id = ?";
+        final String sql="UPDATE schedule SET subject='"+newEvent.getSubject()+"', starttime='"+newEvent.getStartTime()+"', endtime='"+newEvent.getEndTime()+"' WHERE id = ?";
         jdbcTemplate.update(sql,id);
         return 0;
     }
