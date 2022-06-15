@@ -20,7 +20,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { RouterModule } from '@angular/router';
 import { AuthGuard } from './guards/auth.guard';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
-import { AvatarModule } from 'ngx-avatar';
+import { AvatarModule } from 'ngx-avatars';
 import { NameValidatorDirective } from './validators/name-validator.directive';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import { ScheduleComponent } from './schedule/schedule.component';
