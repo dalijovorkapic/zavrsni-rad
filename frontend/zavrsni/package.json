@@ -21,7 +21,6 @@
     "@angular/platform-browser-dynamic": "~13.0.0",
     "@angular/router": "~13.0.0",
     "@auth0/angular-jwt": "^5.0.2",
-    "@ng-bootstrap/ng-bootstrap": "^8.0.0",
     "@syncfusion/ej2-angular-calendars": "^20.1.58",
     "@syncfusion/ej2-angular-dropdowns": "^20.1.60",
     "@syncfusion/ej2-angular-schedule": "^20.1.59",
